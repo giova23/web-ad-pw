@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve web-ad-pw
+After=network.target
+
+[Service]
+User=webadpw
+Group=webadpw
+WorkingDirectory=/home/webadpw/web-ad-pw/
+Environment="PATH=/home/webadpw/web-ad-pw/env/bin"
+ExecStart=/usr/local/bin/uwsgi --ini webadpw.ini
+
+[Install]
+WantedBy=multi-user.target

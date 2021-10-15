@@ -1,0 +1,49 @@
+How to install:
+	ubuntu 20.04:
+		apt install -y python3 python3-pip build-essential python3-dev apache2
+
+		adduser webadpw
+		cd ~webadpw
+
+		git clone "http://gitlab.nabla2.it:800/papotto/web-ad-pw.git"
+
+		cd web-ad-pw
+
+		cp webadpw.conf.dist webadpw.conf
+
+generate a random 32 character string for the WTF_CSRF secret key:
+
+	md5sum /etc/passwd
+
+copy the generated string in the webadpw.conf file, as the "secret": variable.
+
+Continue editing the webadpw.conf file inserting 
+
+the IP or FQDN for an AD domain controller.
+the LDAP Base DN for the domain
+the user attribute and user_tree are already OK for an AD DC.
+Set the ldap_password to the valid domain administrator user
+(or change administrator and password to that of a user who
+can change the passwords for all users. It's needed when
+a user has a expired passwdord to change it)
+You may also change the http port.
+
+Install the required modules:
+
+	python3 setup.py install
+	chown -R webadpw: ~webadpw
+
+You may now test the config by simply running the webadpw.py app:
+
+	./webadpw.py
+
+If some python modules are missing from your install, just pip3 install them.
+
+If all is fine you can test the application by browsing to http://localhost:5000
+
+To start at boot:
+	cp web-ad-pw.service /lib/systemd/system/
+	chown root: /lib/systemd/system/web-ad-pw.service
+	systemctl daemon-reload
+	systemctl enable web-ad-pw
+	systemctl start web-ad-pw

@@ -1,0 +1,10 @@
+{
+	"server": "192.168.1.1",
+	"base_dn": "dc=example,dc=com",
+	"user_attribute": "cn",
+	"user_tree": "cn=users",
+	"ldap_manager": "Administrator",
+	"ldap_password": "PASSWORD",
+	"secret": "6a3bb3e4a35b6978c4c2311a6b1738db",
+	"http_port": 5000
+}

@@ -1,0 +1,20 @@
+WEB-AD-PW 2021-07-14 TODO
+
+	LOW - mettere un titolo alla pagina dicendo il nome dell'ente per cui si sta 
+     	      cambiando la password
+
+	DIMENTICATOIO:
+	FATTO MEDIUM - Mettere certificato
+	FATTO - HIGH - Metterlo al boot (o in apache)
+	FATTO - HIGH - Check Cookies
+	FATTO - HIGH - Mettere configurazione nel file di config
+	FATTO - MEDIUM - Metterlo sotto wsgi on apache2 (e poi eventualmente in docker+proxypass)
+	FATTO - MEDIUM - Generazione password, metterla come default
+	FATTO - MEDIUM - Errori in italiano
+	FATTO LOW - Metterlo in https
+	FATTO LOW - Mettere protezione con password apache per le prove - in realta' limitato come IP
+	FATTO - LOW - Togliere CSRF prints
+	FATTO LOW - Sistemare colori
+	FATTO - CSRF Protection
+	NO -> WSGI  - Metterlo su ProxyPass su 127.0.0.1:5000
+	NO -> WSGI - Fare ProxyPass su apache con https
